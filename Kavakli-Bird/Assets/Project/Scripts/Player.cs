@@ -3,21 +3,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private string name { get; set; }
+    private string characterName { get; set; }
 
-    [SerializeField] private AudioClip dieClip {get; set;}
+    private AudioClip dieClip {get; set;}
 
-    [SerializeField] private AudioClip jumpClip { get; set; }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private AudioClip jumpClip { get; set; }
 }

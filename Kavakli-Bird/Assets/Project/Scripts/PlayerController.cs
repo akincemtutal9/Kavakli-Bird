@@ -1,20 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Lean.Touch;
-
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpHeight;
-
-    void Start()
+    public void Jump()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.Translate(Vector2.up * jumpHeight * Time.deltaTime);
     }
 }
