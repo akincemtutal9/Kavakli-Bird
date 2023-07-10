@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - GameBox
+  - ScoreBox
   layers:
   - Default
   - TransparentFX
