@@ -5,6 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpHeight;
 
+    private Rigidbody2D rb2D;
+
+    private void Start()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+    }
+
     private void OnEnable()
     {
         LeanTouch.OnFingerDown += HandleFingerDown;
@@ -22,6 +29,6 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-       transform.Translate(Vector3.up * jumpHeight); 
+        rb2D.velocity = Vector2.up * jumpHeight;
     }
 }
