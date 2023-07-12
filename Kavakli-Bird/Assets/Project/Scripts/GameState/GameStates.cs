@@ -4,11 +4,14 @@ public class GameStates : MonoBehaviour
 {
     public static GameStates Instance;
 
-    public GameState gameState;
+    private GameState gameState1;
 
+    [SerializeField] private GameObject Game;
     [SerializeField] private GameObject MainMenu;
     [SerializeField] private GameObject DieMenu;
     [SerializeField] private GameObject CharacterSelectMenu;
+
+    public GameState GameState1 { get => gameState1; set => gameState1 = value; }
 
     public enum GameState
     {
@@ -30,12 +33,13 @@ public class GameStates : MonoBehaviour
     }
     private void Start()
     {
-        gameState = GameState.MainMenu;
+        ChangeGameState(GameState.MainMenu);
+        
     }
    
     public void ChangeGameState(GameState state)
     {
-        gameState = state;
+        GameState1 = state;
     
         if(state == GameState.MainMenu)
         {
@@ -60,30 +64,31 @@ public class GameStates : MonoBehaviour
     }
     public void OnInGame()
     {
-        Time.timeScale = 1.0f;
+        Game.SetActive(true);
         DieMenu.SetActive(false);
         MainMenu.SetActive(false);
         CharacterSelectMenu.SetActive(false);
     }
     public void OnDieMenu() { 
-        Time.timeScale = 0.0f;
         DieMenu.SetActive(true);
         MainMenu.SetActive(false);
         CharacterSelectMenu.SetActive(false);
+        Game.SetActive(false);
 
     }
     public void OnMainMenu()
     {
-        Time.timeScale = 0.0f;
         DieMenu.SetActive(false);
         MainMenu.SetActive(true);
         CharacterSelectMenu.SetActive(false);
+        Game.SetActive(false);
+
     }
     public void OnCharacterSelect()
     {
         CharacterSelectMenu.SetActive(true);
         MainMenu.SetActive(true);
         DieMenu.SetActive(false);
-        Time.timeScale = 0.0f;
+        Game.SetActive(false);
     }
 }
