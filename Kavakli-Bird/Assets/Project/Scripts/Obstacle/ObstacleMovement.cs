@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleMovement : MonoBehaviour
 {
     [SerializeField] private float obstacleMoveSpeed;
-    void Update()
+    void LateUpdate()
     {
         transform.Translate(Vector2.left * obstacleMoveSpeed * Time.deltaTime);
 

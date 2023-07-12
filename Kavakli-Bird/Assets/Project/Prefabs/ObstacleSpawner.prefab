@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle: {fileID: 8517325382275717487, guid: d0f58c5ac93c6d04b9474f24b1edb28a, type: 3}
   spawnPosition: {fileID: 2091389139798460235}
-  spawnTime: 1.5
-  maxSpawnYposition: 4
-  minSpawnYposition: -4
+  spawnTime: 2
+  maxSpawnYposition: 3
+  minSpawnYposition: -3
