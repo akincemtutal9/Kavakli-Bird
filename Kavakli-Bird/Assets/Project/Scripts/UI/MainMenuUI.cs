@@ -11,6 +11,8 @@ public class MainMenuUI : MonoBehaviour
     private void Start()
     {
         gameStates = GameStates.Instance;
+        
+        //Assign Button clicks
         playButton.onClick.AddListener(PlayGame);
         characterSelectionMenuButton.onClick.AddListener(GoToCharacterSelectionMenu);
     }
@@ -22,6 +24,6 @@ public class MainMenuUI : MonoBehaviour
 
     private void PlayGame()
     {
-        gameStates.ChangeGameState(GameStates.GameState.InGame);
+        gameStates.ChangeGameState(GameStates.GameState.InGame);x
     }
 }
