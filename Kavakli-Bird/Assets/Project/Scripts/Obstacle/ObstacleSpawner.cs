@@ -13,7 +13,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     [SerializeField] private float minSpawnYposition;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(spawnObstacles());     
     }

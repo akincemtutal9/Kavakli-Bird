@@ -1,9 +1,13 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerDie : MonoBehaviour
 {
     private bool isDead = false;
-
+    public bool IsDead => isDead;
+    public UnityEvent OnDie;
     private void Start()
     {
         isDead = false;
@@ -15,8 +19,9 @@ public class PlayerDie : MonoBehaviour
         {
             isDead = true;
             Debug.Log("öldü");
-            // gameStatei Die yap;
+            OnDie?.Invoke();
+            GameStates.Instance.ChangeGameState(GameStates.GameState.Die);
+            //            StartCoroutine(WaitForChangeState());
         }
     }
-
 }

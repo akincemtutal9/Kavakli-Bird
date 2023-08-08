@@ -24,6 +24,6 @@ public class MainMenuUI : MonoBehaviour
 
     private void PlayGame()
     {
-        gameStates.ChangeGameState(GameStates.GameState.InGame);x
+        gameStates.ChangeGameState(GameStates.GameState.InGame);
     }
 }
