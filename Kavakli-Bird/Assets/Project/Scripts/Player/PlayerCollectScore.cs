@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ public class PlayerCollectScore : MonoBehaviour
 
     private void OnEnable()
     {
-        scorePerObstacle = 0;
+        ResetScore();
         scoreText.text = "Score";
     }
 
@@ -19,11 +18,12 @@ public class PlayerCollectScore : MonoBehaviour
         {
             scorePerObstacle++;
             scoreText.text = scorePerObstacle.ToString();
-            
+            SoundManager.Instance.PlayBlockPassClip();
             Debug.Log(scorePerObstacle);
         }
     }
-    public void ResetScore()
+
+    private void ResetScore()
     {
         scorePerObstacle = 0;
     }

@@ -1,27 +1,28 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
-
 public class PlayerDie : MonoBehaviour
 {
     private bool isDead = false;
     public bool IsDead => isDead;
-    public UnityEvent OnDie;
-    private void Start()
+    private void OnEnable()
     {
         isDead = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && !isDead)
         {
             isDead = true;
             Debug.Log("öldü");
-            OnDie?.Invoke();
-            GameStates.Instance.ChangeGameState(GameStates.GameState.Die);
-            //            StartCoroutine(WaitForChangeState());
+            SoundManager.Instance.PlayDieClip();
+            StartCoroutine(WaitForChangeState());
         }
+    }
+
+    private IEnumerator WaitForChangeState()
+    {
+        yield return new WaitForSeconds(2f);
+        GameStates.Instance.ChangeGameState(GameStates.GameState.Die);
     }
 }
